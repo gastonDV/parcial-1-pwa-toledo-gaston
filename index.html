@@ -17,12 +17,13 @@
                 <div class="card-body">
                   <h5 class="card-title">{{v.name}}</h5>
                   <p class="card-text">{{v.gender}}</p>
-                  <a id="myInput" @click="verModal" class="btn btn-primary">Ver más</a>
+                  <p class="card-text">{{v.url}}</p>
+                  <button @click="(e)=>{verAlert(v.url)}" id="myInput"  class="btn btn-primary">Ver más</button>
                 </div>
             </div>
         </div>
 
-        <div id="myModal" class="modal" tabindex="-1">
+        <div class="modal" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">

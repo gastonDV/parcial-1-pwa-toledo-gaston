@@ -9,14 +9,22 @@ const app = new Vue ({
     },
 
     methods:{
-        
         verModal(){
             const myModal = document.getElementById('myModal')
             const myInput = document.getElementById('myInput')
-
             myModal.addEventListener('shown.bs.modal', () => {
             myInput.focus()
             })
+        },
+
+        verAlert(url){
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    const {species, origin} = res;
+                    const {name} = origin;
+                    alert(`Especia: ${species}, de ${name}` )
+                })
         }
     },
 
