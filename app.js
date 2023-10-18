@@ -1,20 +1,30 @@
+
 const app = new Vue ({
     el: '#app',
-    data: {
+    data:{
         titulo: 'Parcial WPA',
-        per:[]
+        vivos:[
+
+        ]
     },
 
     methods:{
+        
+        verModal(){
+            const myModal = document.getElementById('myModal')
+            const myInput = document.getElementById('myInput')
 
+            myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+            })
+        }
     },
 
     mounted(){
-        fetch("https://rickandmortyapi.com/documentation/#filter-characters?name=rick&status=alive")
+        fetch("https://rickandmortyapi.com/api/character/?status=alive&limit=20")
             .then(res => res.json())
             .then(res =>{
-                this.per = res.results;
-                
+                this.vivos = res.results;
             })
     }
 })
